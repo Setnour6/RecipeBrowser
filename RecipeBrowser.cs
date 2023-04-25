@@ -34,7 +34,7 @@ namespace RecipeBrowser
 	internal class RecipeBrowser : Mod
 	{
 		internal static RecipeBrowser instance;
-		internal static Dictionary<string, ModTranslation> translations; // reference to private field.
+		internal static Dictionary<string, LocalizedText> translations; // reference to private field.
 		internal static Mod itemChecklistInstance;
 		internal ModKeybind ToggleRecipeBrowserHotKey;
 		internal ModKeybind QueryHoveredItemHotKey;
@@ -69,7 +69,7 @@ namespace RecipeBrowser
 			//ChatManager.Register<TagHandlers.URLTagHandler>("u", "url");
 
 			FieldInfo translationsField = typeof(LocalizationLoader).GetField("translations", BindingFlags.Static | BindingFlags.NonPublic);
-			translations = (Dictionary<string, ModTranslation>)translationsField.GetValue(this);
+			translations = (Dictionary<string, LocalizedText>)translationsField.GetValue(this);
 			
 			if (ModLoader.TryGetMod("ItemChecklist", out itemChecklistInstance) && itemChecklistInstance.Version < new Version(0, 2, 1))
 				itemChecklistInstance = null;
@@ -218,7 +218,7 @@ namespace RecipeBrowser
 			}
 		}
 
-		public override void PostAddRecipes()
+		public override void PostAddRecipes()/* tModPorter Note: Removed. Use ModSystem.PostAddRecipes */
 		{
 			if (!Main.dedServ)
 			{
@@ -370,7 +370,7 @@ namespace RecipeBrowser
 			return "Failure";
 		}
 
-		public override void AddRecipes()
+		public override void AddRecipes()/* tModPorter Note: Removed. Use ModSystem.AddRecipes */
 		{
 			// Test crafting station display
 			//var recipe = new ModRecipe(this);
