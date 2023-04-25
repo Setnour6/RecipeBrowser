@@ -279,7 +279,7 @@ namespace RecipeBrowser.UIElements
 			foreach (var head in Heads) {
 				foreach (var body in Bodys) {
 					foreach (var leg in Legs) {
-						testPlayer.statDefense = 0;
+						testPlayer.statDefense *= 0;
 						testPlayer.head = head.headSlot;
 						testPlayer.body = body.bodySlot;
 						testPlayer.legs = leg.legSlot;
@@ -296,7 +296,7 @@ namespace RecipeBrowser.UIElements
 							// This section for testing leg-less sets
 							testPlayer.legs = -1;
 							testPlayer.armor[2] = new Item();
-							testPlayer.statDefense = 0;
+							testPlayer.statDefense *= 0;
 							testPlayer.UpdateArmorSets(255);
 							int noLegsDefenseBonus = testPlayer.statDefense;
 							string noLegSetBonus = testPlayer.setBonus;
@@ -306,7 +306,7 @@ namespace RecipeBrowser.UIElements
 							// This section for testing head-less sets
 							testPlayer.head = -1;
 							testPlayer.armor[0] = new Item();
-							testPlayer.statDefense = 0;
+							testPlayer.statDefense *= 0;
 							testPlayer.UpdateArmorSets(255);
 							int noHeadDefenseBonus = testPlayer.statDefense;
 							string noHeadSetBonus = testPlayer.setBonus;
@@ -316,7 +316,7 @@ namespace RecipeBrowser.UIElements
 							// This section for testing body-less sets
 							testPlayer.body = -1;
 							testPlayer.armor[1] = new Item();
-							testPlayer.statDefense = 0;
+							testPlayer.statDefense *= 0;
 							testPlayer.UpdateArmorSets(255);
 							int noBodyDefenseBonus = testPlayer.statDefense;
 							string noBodySetBonus = testPlayer.setBonus;

@@ -71,7 +71,7 @@ namespace RecipeBrowser.UIElements
 					result.position = Main.LocalPlayer.Center - result.Size; // needed for ItemText
 
 					RecipeLoader.OnCraft(result, recipe, null); // There is no destination, I don't put on mouse, I directly pick up. Is this and next line going to cause issues?
-					ItemLoader.OnCreate(result, new RecipeItemCreationContext { recipe = recipe });
+					ItemLoader.OnCreated(result, new RecipeItemCreationContext { recipe = recipe });
 
 					Item itemIfNoSpace = Main.LocalPlayer.GetItem(Main.myPlayer, result, GetItemSettings.PickupItemFromWorld);
 					if (itemIfNoSpace.stack > 0)

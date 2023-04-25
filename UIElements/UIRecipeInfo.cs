@@ -100,7 +100,7 @@ namespace RecipeBrowser
 				int yAdjust = (row + 1) * 26;
 				foreach (var condition in selectedRecipe.Conditions) {
 					bool state = condition.RecipeAvailable(selectedRecipe);
-					string description = condition.Description;
+					string description = condition.Description.Value; // either Value or Key
 					DoChatTag(sb, comma, state, description);
 					DoChatTag(sbTiles, comma, state, description);
 					yAdjust += 26;
